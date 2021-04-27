@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Data } from '@angular/router';
 import { DataService } from '../data.service';
 
+
 @Component({
   selector: 'app-patient-info',
-  templateUrl: './patient-info.component.html',
-  styleUrls: ['./patient-info.component.css'],
+  templateUrl: './patient-list.component.html',
+  styleUrls: ['./patient-list.component.css'],
   providers:[DataService]
 })
-export class PatientInfoComponent implements OnInit {
+export class PatientListComponent implements OnInit {
 
   dataReceived: object[] = [];
 
@@ -19,6 +20,7 @@ export class PatientInfoComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
+    console.log(this.getDataReceived());
     this.getDataReceived();
     }
   }

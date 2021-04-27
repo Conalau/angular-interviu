@@ -1,0 +1,30 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nume</th>
+        <th scope="col">Prenume</th>
+        <th scope="col">Data Nasterii</th>
+        <th scope="col">Sex</th>
+        <th scope="col">ordernumber</th>
+        <th scope="col">CNP</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of dataReceived">
+        <td>{{ patient.firstName }}</td>
+        <td>{{ patient.lastName }}</td>
+        <td>{{ patient.birthDate }}</td>
+        <td>{{ patient.gender}}</td>
+        <td>{{ patient.orderNumber}}</td>
+        <td>{{ patient.CNP}}</td>
+        <td>buton</td>
+        <td>buton</td>
+      </tr>
+    </tbody>
+  </table>
+  <pre></pre>
+  <button type="button"><a class="nav-link" href="#" routerLink="/add-patient">Add patient</a></button>
+</div>
