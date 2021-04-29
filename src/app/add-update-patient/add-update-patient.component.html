@@ -27,14 +27,14 @@
         <div class="form-group" [class.has-error]="CNP.invalid && CNP.touched">
             <label for="CNP" class="control-label">CNP:</label>
             <input required type="text" name="CNP" [(ngModel)]="model.CNP" class="form-control" #CNP="ngModel"><br><br>
-            <span class="help-block" *ngIf="CNP.invalid && CNP.touched">CNP is too short</span>
+            <span class="help-block" *ngIf="CNP.invalid && CNP.touched">CNP is required</span>
 
         </div>
         <pre></pre>
         <div class="form-group">
             <label for="phoneNumber">Phone Number:</label>
             <input required type="text" name="phoneNumber" [(ngModel)]="model.phoneNumber" class="form-control" #phoneNumber="ngModel"><br><br>
-            <span class="help-block" *ngIf="phoneNumber.invalid && phoneNumber.touched">Phone number is too short</span>
+            <span class="help-block" *ngIf="phoneNumber.invalid && phoneNumber.touched">Phone number is required</span>
         </div>
         <button class="btn btn-primary" type="submit" >Save</button>
     </form>
