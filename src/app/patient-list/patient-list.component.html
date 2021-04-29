@@ -6,8 +6,6 @@
         <th scope="col">Prenume</th>
         <th scope="col">Data Nasterii</th>
         <th scope="col">Sex</th>
-        <th scope="col">ordernumber</th>
-        <th scope="col">CNP</th>
         <th scope="col"></th>
         <th scope="col"></th>
       </tr>
@@ -18,10 +16,8 @@
         <td>{{ patient.lastName }}</td>
         <td>{{ patient.birthDate }}</td>
         <td>{{ patient.gender}}</td>
-        <td>{{ patient.orderNumber}}</td>
-        <td>{{ patient.CNP}}</td>
-        <td>buton</td>
-        <td>buton</td>
+        <button type="button">Update patient</button>
+        <td><button class="btn btn-primary"type="submit" (click)="remove(patient.CNP)">DELETE</button></td>
       </tr>
     </tbody>
   </table>

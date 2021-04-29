@@ -17,6 +17,12 @@ export class PatientListComponent implements OnInit {
   getDataReceived(){
     return this.dataReceived = this.data.getPatients()
   }
+
+  remove(CNP : number) {
+    if(confirm("Are you sure you want to delete this patient")) {
+      this.data.deletePatient(CNP);
+    }
+  }
   constructor(private data: DataService) { }
 
   ngOnInit() {

@@ -1,37 +1,44 @@
 <div class="container">
     <form #patientForm="ngForm" (ngSubmit)="savePatient(patientForm)">
-        <div class= "form-group">
-            <label for="firstName">Frist Name:</label>
-            <input type="text" name="firstName" [(ngModel)]="model.firstName" class="form-control">
+        <div class= "form-group" [class.has-error]="firstName.invalid && firstName.touched">
+            <label for="firstName" class="control-label">Frist Name:</label>
+            <input required type="text" name="firstName" [(ngModel)]="model.firstName" class="form-control" #firstName="ngModel">
+            <span class="help-block" *ngIf="firstName.invalid && firstName.touched">Frist name is required</span>
         </div>
         <pre></pre>
-        <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input type="text" name="lastName" [(ngModel)]="model.lastName" class="form-control"><br><br>
+        <div class="form-group" [class.has-error]="lastName.invalid && lastName.touched">
+            <label for="lastName" class="control-label">Last Name:</label>
+            <input required type="text" name="lastName" [(ngModel)]="model.lastName" class="form-control" #lastName="ngModel"><br><br>
+            <span class="help-block" *ngIf="lastName.invalid && lastName.touched">Last name is required</span>
         </div>
         <pre></pre>
-        <div class="form-group">
-            <label for="birthDate">Birth Date:</label>
-            <input type="text" name="birthDate" [(ngModel)]="model.birthDate" class="form-control"><br><br>
+        <div class="form-group" [class.has-error]="birthDate.invalid && birthDate.touched">
+            <label for="birthDate" class="control-label">Birth Date:</label>
+            <input required type="date" name="birthDate" [(ngModel)]="model.birthDate" class="form-control" #birthDate="ngModel"><br><br>
+            <span class="help-block" *ngIf="birthDate.invalid && birthDate.touched">Birth date is required</span>
         </div>
         <pre></pre>
-        <div class="form-group">
-            <label for="gender">Gender:</label>
-            <input type="text" name="gender" [(ngModel)]="model.gender" class="form-control"><br><br>
+        <div class="form-group" [class.has-error]="gender.invalid && gender.touched">
+            <label for="gender" class="control-label">Gender:</label>
+            <input required type="text" name="gender" [(ngModel)]="model.gender" class="form-control" #gender="ngModel"><br><br>
+            <span class="help-block" *ngIf="gender.invalid && gender.touched">Gender is required</span>
         </div>
         <pre></pre>
-        <div class="form-group">
-            <label for="CNP">CNP:</label>
-            <input type="text" name="CNP" [(ngModel)]="model.CNP" class="form-control"><br><br>
+        <div class="form-group" [class.has-error]="CNP.invalid && CNP.touched">
+            <label for="CNP" class="control-label">CNP:</label>
+            <input required type="text" name="CNP" [(ngModel)]="model.CNP" class="form-control" #CNP="ngModel"><br><br>
+            <span class="help-block" *ngIf="CNP.invalid && CNP.touched">CNP is too short</span>
+
         </div>
         <pre></pre>
         <div class="form-group">
             <label for="phoneNumber">Phone Number:</label>
-            <input type="text" name="phoneNumber" [(ngModel)]="model.phoneNumber" class="form-control"><br><br>
+            <input required type="text" name="phoneNumber" [(ngModel)]="model.phoneNumber" class="form-control" #phoneNumber="ngModel"><br><br>
+            <span class="help-block" *ngIf="phoneNumber.invalid && phoneNumber.touched">Phone number is too short</span>
         </div>
-        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-primary" type="submit" >Save</button>
     </form>
-    <button class="btn btn-primary" type="submit"><a class="nav-link" href="#" routerLink="/">Submit</a></button>
+    <button class="btn btn-secondary" type="submit"><a class="nav-link" href="#" routerLink="/">Submit</a></button>
 
 </div>
 

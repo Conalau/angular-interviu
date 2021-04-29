@@ -10,14 +10,10 @@ import { DataService } from '../data.service';
 })
 export class AddUpdatePatientComponent implements OnInit {
 
-  model: any = {};
-  list: any[]=[];
-
+  model: any = {}
 
   savePatient(patientForm : NgForm) {
     this.data.addPatient(patientForm.value);
-    alert('test')
-    
   }
   constructor(private data : DataService) { }
 

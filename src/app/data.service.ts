@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+// import { Patient } from '../app/patient.model'
 
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  patients: Object[];
+  patients: any[];
 
   constructor() {
     if (localStorage.getItem('patients') === null) {
@@ -29,6 +30,20 @@ export class DataService {
     addPatient(patientData : object) {
       this.patients.push(patientData);
       localStorage.setItem('patients',JSON.stringify(this.patients))
+    }
+
+    deletePatient(CNP : number) {
+      this.getPatients()
+      const patientIndex = this.patients.findIndex(p => p.CNP === CNP)
+      if(patientIndex > -1) {
+        this.patients.splice(patientIndex, 1)
+        this.savePatientList();
+      }
+    }
+    savePatientList() {
+      localStorage.setItem('patients', JSON.stringify(this.patients));
+      this.patients = JSON.parse(localStorage.getItem('patients'));
+      console.log('Saved', this.patients);
     }
   }
 
